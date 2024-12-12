@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why I Love You</title>
+    <style>
+        body {
+            background-image: url('https://www.dropbox.com/scl/fi/rckdwpzw7a673348v7zgo/20241124_165943000_iOS.jpg?rlkey=8daiomokqreb6piuxs36rggn9&st=tvdc44p4&dl=1');
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: white;
+        }
+
+        .heart {
+            font-size: 80px;
+            color: red;
+            cursor: pointer;
+            animation: pop 1s infinite;
+        }
+
+        @keyframes pop {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #message {
+            font-size: 24px;
+            color: #ff4d94;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .reason {
+            font-size: 20px;
+            color: #4CAF50;
+            margin: 20px;
+            display: none;
+        }
+
+        .reason:nth-child(even) {
+            color: #ff7f7f;
+        }
+
+        .reason:nth-child(odd) {
+            color: #ffb3b3;
+        }
+
+        .next-btn {
+            padding: 10px 20px;
+            background-color: #ff66b2;
+            color: white;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            border-radius: 5px;
+        }
+
+        .next-btn:hover {
+            background-color: #ff3385;
+        }
+
+        .fadeIn {
+            animation: fadeIn 2s forwards;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="heart" onclick="startLoveMessage()">💖</div>
+
+    <div id="message" class="hidden">
+        <p>Hey dear Pratiksha... click on my heart and come inside to see why I love you!</p>
+    </div>
+
+    <div id="reasons-container" class="hidden">
+        <div id="reason1" class="reason fadeIn">Your smile brightens my day 😊</div>
+        <div id="reason2" class="reason fadeIn">You always know how to make me laugh 😂</div>
+        <div id="reason3" class="reason fadeIn">Your kindness inspires me 💖</div>
+        <div id="reason4" class="reason fadeIn">You listen to me with genuine interest 👂💬</div>
+        <div id="reason5" class="reason fadeIn">You support my dreams 🌟</div>
+        <div id="reason6" class="reason fadeIn">You have the most beautiful eyes 👀💫</div>
+        <div id="reason7" class="reason fadeIn">You make me feel safe 🛡️</div>
+        <div id="reason8" class="reason fadeIn">Your hugs are the best 🤗</div>
+        <div id="reason9" class="reason fadeIn">You are incredibly thoughtful 💭</div>
+        <div id="reason10" class="reason fadeIn">You bring out the best in me 🌱</div>
+
+        <button id="nextBtn" class="next-btn hidden" onclick="showNextReason()">Come more inside me!</button>
+    </div>
+
+    <script>
+        let currentReason = 1;
+
+        function startLoveMessage() {
+            document.querySelector('.heart').style.display = 'none';
+            document.getElementById('message').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('reasons-container').classList.remove('hidden');
+                showNextReason();
+            }, 2000);
+        }
+
+        function showNextReason() {
+            if (currentReason <= 10) {
+                document.getElementById('reason' + currentReason).style.display = 'block';
+                currentReason++;
+                if (currentReason > 10) {
+                    document.getElementById('nextBtn').style.display = 'none';
+                } else {
+                    document.getElementById('nextBtn').style.display = 'block';
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
